@@ -13,7 +13,7 @@ public class JDBCStockDAO implements StockDAO {
     }
 
     @Override
-    public void addStock(Stock stock) {
+    public boolean addStock(Stock stock) {
         String sql = "INSERT INTO stocks (symbol, name, metadata) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, stock.getSymbol());
@@ -23,6 +23,7 @@ public class JDBCStockDAO implements StockDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     @Override
@@ -32,7 +33,7 @@ public class JDBCStockDAO implements StockDAO {
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                Stock stock = new Stock(rs.getInt("id"), rs.getString("symbol"),
+                Stock stock = new Stock(rs.getString("symbol"),
                         rs.getString("name"), rs.getString("metadata"));
                 stocks.add(stock);
             }
@@ -50,7 +51,7 @@ public class JDBCStockDAO implements StockDAO {
             stmt.setString(1, symbol);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                stock = new Stock(rs.getInt("id"), rs.getString("symbol"),
+                stock = new Stock(rs.getString("symbol"),
                         rs.getString("name"), rs.getString("metadata"));
             }
         } catch (SQLException e) {

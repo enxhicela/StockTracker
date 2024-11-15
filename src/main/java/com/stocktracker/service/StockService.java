@@ -12,7 +12,7 @@ public class StockService {
     }
 
     public void addStock(String symbol, String name, String metadata) {
-        Stock stock = new Stock(0, symbol, name, metadata);
+        Stock stock = new Stock(symbol, name, metadata);
         stockDAO.addStock(stock);
     }
 

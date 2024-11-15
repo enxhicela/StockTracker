@@ -6,7 +6,7 @@ public class Stock {
     private String name;
     private String metadata;
 
-    public Stock(int id, String symbol, String name, String metadata) {
+    public Stock(String symbol, String name, String metadata) {
         this.id = id;
         this.symbol = symbol;
         this.name = name;

@@ -1,6 +1,9 @@
 package com.stocktracker;
 
+import com.stocktracker.entities.Stock;
 import com.stocktracker.service.PriceService;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class StockTrackerConsole {
@@ -55,9 +58,33 @@ public class StockTrackerConsole {
     }
 
     private void addStock() {
+        System.out.print("Enter stock symbol: ");
+        String symbol = scanner.nextLine();
+        System.out.print("Enter stock name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter any additional metadata (optional): ");
+        String metadata = scanner.nextLine();
+
+        Stock stock = new Stock(symbol, name, metadata);
+        boolean success = stockService.addStock(stock);
+
+        if (success) {
+            System.out.println("Stock added successfully!");
+        } else {
+            System.out.println("Failed to add stock. It may already exist.");
+        }
     }
 
     private void displayStocks() {
+        List<Stock> stocks = stockService.getAllStocks();
 
+        if (stocks.isEmpty()) {
+            System.out.println("No stocks are currently tracked.");
+        } else {
+            System.out.println("Tracked Stocks:");
+            for (Stock stock : stocks) {
+                System.out.println("Symbol: " + stock.getSymbol() + ", Name: " + stock.getName() + ", Metadata: " + stock.getMetadata());
+            }
+        }
     }
 }
