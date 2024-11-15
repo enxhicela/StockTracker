@@ -2,18 +2,16 @@ package com.stocktracker.service;
 
 import com.stocktracker.dao.StockDAO;
 import com.stocktracker.entities.Stock;
-import com.stocktracker.service.StockPriceFetcher;
 import com.stocktracker.dao.StockPriceDAO;
 import com.stocktracker.entities.StockPrice;
 import org.json.JSONObject;
 
-import java.sql.Connection;
 import java.util.Date;
 import java.util.List;
 import java.util.Iterator;
 
 public class PriceService {
-    private final StockPriceDAO stockPriceDAO;
+    private final StockPriceDAO stockPriceDAO ;
     private final StockDAO stockDAO;
 
     public PriceService(StockPriceDAO stockPriceDAO, StockDAO stockDAO) {
