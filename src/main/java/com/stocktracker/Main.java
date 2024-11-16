@@ -2,7 +2,6 @@ package com.stocktracker;
 
 import com.stocktracker.dao.JDBCStockDAO;
 import com.stocktracker.service.StockService;
-import com.stocktracker.ui.StockTrackerConsole;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,6 +19,5 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }
