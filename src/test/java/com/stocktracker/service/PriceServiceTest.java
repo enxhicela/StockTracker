@@ -43,17 +43,16 @@ class PriceServiceTest {
 
     @Test
     void testGetAllStocks() {
-        // Mock data
+
         List<Stock> mockStocks = Arrays.asList(
                 new Stock("AAPL", "Apple Inc.", "Tech company"),
                 new Stock("GOOGL", "Alphabet Inc.", "Parent of Google")
         );
         when(stockDAO.getAllStocks()).thenReturn(mockStocks);
 
-        // Test the method
+
         List<Stock> stocks = priceService.getAllStocks();
 
-        // Verify behavior and assert
         verify(stockDAO).getAllStocks();
         assertNotNull(stocks, "Stock list should not be null.");
         assertEquals(2, stocks.size(), "There should be two stocks in the list.");
