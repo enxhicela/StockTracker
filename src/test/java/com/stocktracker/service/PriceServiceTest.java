@@ -2,10 +2,8 @@ package com.stocktracker.service;
 
 import com.stocktracker.dao.StockDAO;
 import com.stocktracker.dao.StockPriceDAO;
-import com.stocktracker.entities.Stock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;

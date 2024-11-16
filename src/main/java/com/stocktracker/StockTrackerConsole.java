@@ -1,6 +1,6 @@
 package com.stocktracker;
 
-import com.stocktracker.entities.Stock;
+import com.stocktracker.service.Stock;
 import com.stocktracker.service.PriceService;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class StockTrackerConsole {
             System.out.println("4. Exit");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:

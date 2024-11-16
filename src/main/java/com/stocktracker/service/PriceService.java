@@ -1,9 +1,7 @@
 package com.stocktracker.service;
 
 import com.stocktracker.dao.StockDAO;
-import com.stocktracker.entities.Stock;
 import com.stocktracker.dao.StockPriceDAO;
-import com.stocktracker.entities.StockPrice;
 import org.json.JSONObject;
 
 import java.util.Date;
@@ -70,7 +68,6 @@ public class PriceService {
     }
 
     public boolean addStock(Stock stock) {
-        // Check if stock already exists in the database
         if (stockDAO.getStockBySymbol(stock.getSymbol()) != null) {
             System.out.println("Stock with symbol " + stock.getSymbol() + " already exists.");
             return false;

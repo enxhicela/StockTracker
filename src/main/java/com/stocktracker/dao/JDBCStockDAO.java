@@ -1,6 +1,6 @@
 package com.stocktracker.dao;
 
-import com.stocktracker.entities.Stock;
+import com.stocktracker.service.Stock;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

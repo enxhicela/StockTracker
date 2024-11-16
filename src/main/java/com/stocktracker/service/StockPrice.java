@@ -1,4 +1,4 @@
-package com.stocktracker.entities;
+package com.stocktracker.service;
 
 import java.util.Date;
 

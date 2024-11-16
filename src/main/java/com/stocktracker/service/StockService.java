@@ -1,7 +1,7 @@
 package com.stocktracker.service;
 
 import com.stocktracker.dao.StockDAO;
-import com.stocktracker.entities.Stock;
+
 import java.util.List;
 
 public class StockService {
